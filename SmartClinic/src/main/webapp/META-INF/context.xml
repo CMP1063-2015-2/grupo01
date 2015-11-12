@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Context reloadable="true">
+    <Resource 
+    	name="jdbc/SMARTCLINIC" 
+    	auth="Container"
+        type="javax.sql.DataSource"
+        maxActive="100" 
+        maxIdle="40" 
+        maxWait="1000"
+        username="sa"
+        password="123456" 
+        driverClassName="net.sourceforge.jtds.jdbc.Driver"
+        url="jdbc:jtds:sqlserver://localhost:1433;DatabaseName=SmartClinic;selectMethod=cursor" 
+   	/>
+</Context>

@@ -1,0 +1,63 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html">
+
+<ui:composition template="/template.xhtml">
+	<ui:define name="content">
+		<input type="hidden" name="activeMenu" id="activeMenu" value="medico" />
+
+		<div class="col-md-9">
+			<h2 class="page-header">Medicos</h2>
+		</div>
+
+		<div class="col-md-9">
+			<div class="panel panel-default">
+				<div class="panel-body">
+					<div class="dataTable_wrapper">
+							<h:dataTable id="dataTables-example2" styleClass="table table-striped table-bordered table-hover"
+											rowClasses="odd gradeA, even gradeA"
+											value="#{medicoController.medicoList}" var="medico">
+											
+									<h:column>
+										<f:facet name="header">#</f:facet>
+										#{medico.id}
+									</h:column>
+									<h:column>
+										<f:facet name="header">Nome</f:facet>
+										#{medico.pessoa.nome}
+									</h:column>
+									<h:column>
+										<f:facet name="header">Sexo</f:facet>
+										#{medico.pessoa.sexo.nome}
+									</h:column>
+									<h:column>
+										<f:facet name="header">CRM</f:facet>
+										#{medico.crm}
+									</h:column>
+									
+									<h:column>
+										<f:facet name="header">Ações</f:facet>
+										<h:form>
+											<div align="center">
+												<h:commandButton onclick="return confirm('Certeza?')" styleClass="btn btn-info btn-xs" value="Editar" action="#{medicoController.excluir}">
+													<f:setPropertyActionListener target="#{medicoController.actionMedico}" value="#{medico}" />
+													<f:ajax></f:ajax>
+												</h:commandButton>
+												&nbsp;
+												<h:commandButton styleClass="btn btn-warning btn-xs" value="Deletar">
+												</h:commandButton>
+											</div>
+										</h:form>
+									</h:column>
+							
+							</h:dataTable>
+					</div>
+				</div>
+			</div>
+		</div>
+	</ui:define>
+</ui:composition>
+</html>

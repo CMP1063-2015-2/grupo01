@@ -1,0 +1,52 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+    xmlns:ui="http://java.sun.com/jsf/facelets"
+    xmlns:f="http://java.sun.com/jsf/core"
+    xmlns:h="http://java.sun.com/jsf/html">
+ 
+<body>
+     <div class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+        <div class="container">
+            <!-- Brand and toggle get grouped for better mobile display -->
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <div class="navbar-brand">SmartClinic</div>
+            </div>
+            
+        <h:form>
+            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                <ul class="nav navbar-nav navbar-right">
+                    <li class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">${usuarioLogado.nome}<b class="caret"></b></a>
+                        <ul class="dropdown-menu">
+	                            <li>
+	                                <a href="full-width.html">Full Width Page</a>
+	                            </li>
+	                            <li>
+	                                <a href="sidebar.html">Sidebar Page</a>
+	                            </li>
+	                            <li>
+	                                <a href="faq.html">FAQ</a>
+	                            </li>
+	                            <li>
+	                                <a href="404.html">404</a>
+	                            </li>
+	                            <li>
+	                            	<h:commandLink action="#{loginController.deslogar}" value="Deslogar" styleClass="fa fa-sign-out fa-fw">
+	                            		<f:ajax />
+	                            	</h:commandLink>
+	                            </li>
+                        </ul>
+                    </li>
+                </ul>
+            </div>
+	    </h:form>
+        </div>
+    </div>
+</body>
+</html>

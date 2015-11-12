@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="ISO-8859-1" ?>
+<!DOCTYPE log4j:configuration SYSTEM "../web/WEB-INF/dtd/log4j.dtd">
+
+<log4j:configuration xmlns:log4j="http://jakarta.apache.org/log4j/">
+
+    <appender name="CONSOLE" class="org.apache.log4j.ConsoleAppender">
+    	<param name="Target" value="System.out" />
+        <layout class="org.apache.log4j.PatternLayout">
+            <param name="ConversionPattern"
+                value="[SmartClinic] %d{HH:mm:ss} %-5p %c{1}:%L - %m%n" />
+        </layout>
+    </appender>
+
+    <logger name="org.apache">
+        <level value="error" />
+    </logger>
+    
+    <logger name="br.com.smartclinic">
+        <level value="debug" />
+    </logger>
+    
+    <logger name="org.hibernate">
+        <level value="error" />
+    </logger>
+    
+    <logger name="log4j.logger.org.hibernate.tool.hbm2ddl">
+        <level value="error" />
+    </logger>
+  
+	<root>
+        <priority value="DEBUG" />
+        <appender-ref ref="CONSOLE" />
+    </root>
+    
+</log4j:configuration>

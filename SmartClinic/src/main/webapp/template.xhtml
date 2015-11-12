@@ -1,0 +1,37 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"> 
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:c="http://xmlns.jcp.org/jsp/jstl/core"  
+      xmlns:h="http://java.sun.com/jsf/html"> 
+
+	<h:head>
+		<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1"/>
+		<title>
+			<ui:insert name="title">
+				SmartClinic
+			</ui:insert>
+		</title>
+		<h:outputStylesheet library="smartclinic/css" name="smartclinic.css"/>
+		<h:outputStylesheet library="bootstrap/css" name="bootstrap.css"/>
+		<h:outputStylesheet library="bootstrap/css" name="bootstrap-theme.min.css" />
+    	<h:outputStylesheet library="bootstrap/datatables-plugins/integration/bootstrap/3" name="dataTables.bootstrap.css"></h:outputStylesheet>
+    	<h:outputStylesheet library="bootstrap/datatables-responsive/css" name="dataTables.responsive.css"></h:outputStylesheet>
+    	<h:outputScript library="jquery" name="jquery-1.11.1.min.js" />
+    	<h:outputScript library="bootstrap/js" name="bootstrap.min.js" />
+    	<h:outputScript library="bootstrap/datatables/media/js" name="jquery.dataTables.min.js"></h:outputScript>
+    	<h:outputScript library="bootstrap/datatables-plugins/integration/bootstrap/3" name="dataTables.bootstrap.min.js"></h:outputScript>
+    	<h:outputScript library="smartclinic/js" name="smartclinic.js"></h:outputScript>
+	</h:head> 
+	<h:body> 
+		<h:inputHidden id="usuarioLogado"></h:inputHidden>
+		<ui:include src="/public/top_bar.xhtml"></ui:include>
+		
+		<div class="container">
+			<div class="row">
+				<ui:include src="/public/menu.xhtml"></ui:include>
+				<ui:insert name="content"></ui:insert>
+			</div>
+		</div>
+	</h:body> 
+</html>
