@@ -24,4 +24,6 @@ public class RegraNegocioException extends Exception{
 	public List<String> getMensagens(){
 		return mensagens;
 	}
+	
+	//teste
 }
