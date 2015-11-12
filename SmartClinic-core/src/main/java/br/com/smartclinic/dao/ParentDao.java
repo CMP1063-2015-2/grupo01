@@ -1,7 +1,6 @@
 package br.com.smartclinic.dao;
 
 import java.io.Serializable;
-import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
 
@@ -94,10 +93,8 @@ public class ParentDao implements Serializable {
 		HibernateUtil.beginTransaction();
 		Query query = HibernateUtil.getSession().createQuery(hql.toString());
 		
-		if (parametros != null){
-			String key;
-			for (Iterator<String> it = parametros.keySet().iterator(); it.hasNext();) {
-				key = it.next();
+		if(parametros != null){
+			for(String key: parametros.keySet()){
 				query.setParameter(key, parametros.get(key));
 			}
 		}
@@ -111,9 +108,7 @@ public class ParentDao implements Serializable {
 		Query query = HibernateUtil.getSession().createQuery(hql.toString());
 		
 		if(parametros != null){
-			String key;
-			for(Iterator<String> it = parametros.keySet().iterator(); it.hasNext();){
-				key = it.next();
+			for(String key: parametros.keySet()){
 				query.setParameter(key, parametros.get(key));
 			}
 		}
