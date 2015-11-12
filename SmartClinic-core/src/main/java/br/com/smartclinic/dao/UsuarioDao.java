@@ -7,6 +7,8 @@ import br.com.smartclinic.model.Usuario;
 
 public class UsuarioDao extends ParentDao {
 	
+	private static final long serialVersionUID = 1L;
+	
 	private static UsuarioDao instance;
 	
 	public static UsuarioDao getInstance(){

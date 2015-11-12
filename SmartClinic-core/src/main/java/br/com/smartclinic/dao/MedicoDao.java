@@ -9,6 +9,8 @@ import br.com.smartclinic.model.Pessoa;
 
 public class MedicoDao extends ParentDao{
 	
+	private static final long serialVersionUID = 1L;
+	
 	private static MedicoDao instance;
 	
 	public static MedicoDao getInstance(){
