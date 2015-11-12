@@ -34,7 +34,7 @@ public class Main {
 	public void setAgenda(ScheduleModel agenda) {
 		this.agenda = agenda;
 	}
-	//teste commit pelo github 2
+
 	@PostConstruct
 	public void init(){
 		service = SmartClinicService.getInstance();

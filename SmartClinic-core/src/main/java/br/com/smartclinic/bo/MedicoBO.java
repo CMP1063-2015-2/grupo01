@@ -31,7 +31,7 @@ public class MedicoBO extends ParentBO{
 
 	/**
 	 * Regras de negocio: <br>
-	 * 1 - NÃ£o podem haver medicos com o CRM repetido<br>
+	 * 1 - Não podem haver medicos com o CRM repetido<br>
 	 * @param medico
 	 * @return
 	 * @throws RegraNegocioException 
@@ -42,13 +42,13 @@ public class MedicoBO extends ParentBO{
 		List<Medico> listMedicosTemp;
 		List<String> mensagens = new ArrayList<String>();
 		
-		// Valida Regras de negÃ³cio
+		// Valida Regras de negócio
 		//[1]
 		medicoTemp = new Medico();
 		medicoTemp.setCrm(medico.getCrm());
 		listMedicosTemp = medicoDao.listar(medicoTemp, true);
 		if(listMedicosTemp != null && listMedicosTemp.size() > 0){
-			mensagens.add("JÃ¡ existe um mÃ©dico cadastrado com este CRM");
+			mensagens.add("Já existe um médico cadastrado com este CRM");
 		}
 		
 		if(mensagens.size() > 0){
