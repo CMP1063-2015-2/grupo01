@@ -25,5 +25,5 @@ public class RegraNegocioException extends Exception{
 		return mensagens;
 	}
 	
-	//teste 2 3
+	//teste 2 3 4
 }
