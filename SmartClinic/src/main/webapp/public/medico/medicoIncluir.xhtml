@@ -1,0 +1,80 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:p="http://primefaces.org/ui">
+
+<ui:composition template="/template.xhtml">
+	<ui:define name="content">
+		<input type="hidden" name="activeMenu" id="activeMenu" value="medico" />
+
+		<div class="col-md-9">
+			<h2 class="page-header">Cadastro de médico</h2>
+		</div>
+
+		<div class="col-md-9">
+			<h:form>
+				<p:wizard flowListener="#{medicoController.onFlowProcess}" backLabel="Anterior" nextLabel="Próximo">
+					<p:tab id="pessoal" title="Dados Pessoais">
+						<div class="panel panel-default">
+							<div class="panel-body">
+								<p:messages />								
+								<div class="row">
+                                	<div class="col-lg-6">
+                                		<div class="form-group">
+                                			<label>Nome</label>
+                                			<h:inputText styleClass="form-control" required="true" requiredMessage="O campo nome é de preenchimento obrigatório."/>
+                                		</div>
+                                	</div>
+                                	
+                                	<div class="col-lg-6">
+                                		<div class="form-group">
+                                			<label>CPF</label>
+                                			<h:inputText styleClass="form-control" required="true" requiredMessage="O campo CPF é de preenchimento obrigatório."/>
+                                		</div>
+                                	</div>
+                                	
+                                	<div class="col-lg-6">
+                                		<div class="form-group">
+                                			<label>Sexo</label>
+                                			<h:selectOneMenu styleClass="form-control" required="true" requiredMessage="O campo Sexo é de preenchimento obrigatório.">
+                                				<f:selectItem itemLabel="-- Selecione --" />
+                                				<f:selectItems value="#{medicoController.sexos}" var="sexo" itemValue="#{sexo}" itemLabel="#{sexo.nome}"/>
+                                			</h:selectOneMenu>
+                                		</div>
+                                	</div>
+                                	
+                                	<div class="col-lg-6">
+                                		<div class="form-group">
+                                			<label>RG</label>
+                                			<h:inputText styleClass="form-control" required="true" requiredMessage="O campo RG é de preenchimento obrigatório."/>
+                                		</div>
+                                	</div>
+                                </div>
+							</div>
+						</div>
+					</p:tab>
+					
+					<p:tab id="enderecos" title="Endereço">
+						<h:outputText value="Endereço" />
+					</p:tab>
+					
+					<p:tab id="telefone" title="Telefone">
+						<h:outputText value="Telefone" />
+					</p:tab>
+					
+					<p:tab id="acesso" title="Dados de acesso">
+						<h:outputText value="Dados de acesso" />
+					</p:tab>
+					
+					<p:tab id="confirmacao" title="Confirmação">
+						<h:outputText value="Confirmação" />
+					</p:tab>
+				</p:wizard>
+			</h:form>
+		</div>
+	</ui:define>
+</ui:composition>
+</html>

@@ -14,46 +14,50 @@
 		</div>
 
 		<div class="col-md-9">
+			<div class="btn-right">
+				<h:form>
+					<h:commandButton action="medicoIncluir" value="Cadastrar um novo médico" styleClass="btn btn-primary btn-sm"/>
+				</h:form>
+			</div>
 			<div class="panel panel-default">
 				<div class="panel-body">
 					<div class="dataTable_wrapper">
-							<h:dataTable id="dataTables-example2" styleClass="table table-striped table-bordered table-hover"
-											rowClasses="odd gradeA, even gradeA"
-											value="#{medicoController.medicoList}" var="medico">
-											
-									<h:column>
-										<f:facet name="header">#</f:facet>
-										#{medico.id}
-									</h:column>
-									<h:column>
-										<f:facet name="header">Nome</f:facet>
-										#{medico.pessoa.nome}
-									</h:column>
-									<h:column>
-										<f:facet name="header">Sexo</f:facet>
-										#{medico.pessoa.sexo.nome}
-									</h:column>
-									<h:column>
-										<f:facet name="header">CRM</f:facet>
-										#{medico.crm}
-									</h:column>
-									
-									<h:column>
-										<f:facet name="header">Ações</f:facet>
-										<h:form>
-											<div align="center">
-												<h:commandButton onclick="return confirm('Certeza?')" styleClass="btn btn-info btn-xs" value="Editar" action="#{medicoController.excluir}">
-													<f:setPropertyActionListener target="#{medicoController.actionMedico}" value="#{medico}" />
-													<f:ajax></f:ajax>
-												</h:commandButton>
-												&nbsp;
-												<h:commandButton styleClass="btn btn-warning btn-xs" value="Deletar">
-												</h:commandButton>
-											</div>
-										</h:form>
-									</h:column>
-							
-							</h:dataTable>
+						<h:dataTable id="dataTables-example2" styleClass="table table-striped table-bordered table-hover"
+										rowClasses="odd gradeA, even gradeA"
+										value="#{medicoController.medicoList}" var="medico">
+										
+								<h:column>
+									<f:facet name="header">#</f:facet>
+									#{medico.id}
+								</h:column>
+								<h:column>
+									<f:facet name="header">Nome</f:facet>
+									#{medico.pessoa.nome}
+								</h:column>
+								<h:column>
+									<f:facet name="header">Sexo</f:facet>
+									#{medico.pessoa.sexo.nome}
+								</h:column>
+								<h:column>
+									<f:facet name="header">CRM</f:facet>
+									#{medico.crm}
+								</h:column>
+								
+								<h:column>
+									<f:facet name="header">Ações</f:facet>
+									<h:form>
+										<div align="center">
+											<h:commandButton onclick="return confirm('Certeza?')" styleClass="btn btn-info btn-xs" value="Editar" action="#{medicoController.excluir}">
+												<f:setPropertyActionListener target="#{medicoController.actionMedico}" value="#{medico}" />
+												<f:ajax></f:ajax>
+											</h:commandButton>
+											&nbsp;
+											<h:commandButton styleClass="btn btn-warning btn-xs" value="Deletar">
+											</h:commandButton>
+										</div>
+									</h:form>
+								</h:column>
+						</h:dataTable>
 					</div>
 				</div>
 			</div>

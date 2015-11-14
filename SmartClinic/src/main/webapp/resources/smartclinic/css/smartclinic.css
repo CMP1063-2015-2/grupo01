@@ -70,3 +70,13 @@ footer {
 .btn-danger.btn-outline:hover {
     color: #fff;
 }
+
+.btn-right {
+	padding-left: 670px;
+	padding-bottom: 12px;
+	padding-top: 7px;
+}
+
+.ui-wizard-step-title{
+	font-size: 14px !important;
+}

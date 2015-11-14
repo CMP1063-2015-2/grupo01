@@ -7,7 +7,10 @@ import javax.annotation.PostConstruct;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.ViewScoped;
 
+import org.primefaces.event.FlowEvent;
+
 import br.com.smartclinic.model.Medico;
+import br.com.smartclinic.model.enums.SexoEnum;
 import br.com.smartclinic.service.MedicoService;
 
 @ManagedBean
@@ -46,5 +49,11 @@ public class MedicoController implements Serializable {
 		return "public/medicoListar";
 	}
 	
-
+	public String onFlowProcess(FlowEvent event){
+		return event.getNewStep();
+	}
+	
+	public SexoEnum[] getSexos(){
+		return SexoEnum.values();
+	}
 }
