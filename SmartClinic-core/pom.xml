@@ -87,6 +87,13 @@
 			<version>1.5.6</version>
 		</dependency>
 
+		<dependency>
+			<groupId>mysql</groupId>
+			<artifactId>mysql-connector-java</artifactId>
+			<version>5.1.37</version>
+		</dependency>
+
+
 		<!-- Log4j -->
 		<dependency>
 			<groupId>log4j</groupId>
@@ -94,6 +101,13 @@
 			<version>1.2.14</version>
 			<type>jar</type>
 			<scope>compile</scope>
+		</dependency>
+
+		<!-- DEPENDENCIA DO PRIMEFACES (CRIAR ENTIDADES EXTENDENDO CLASSES DO PRIMEFACES) -->
+		<dependency>
+			<groupId>org.primefaces</groupId>
+			<artifactId>primefaces</artifactId>
+			<version>5.3</version>
 		</dependency>
 
 	</dependencies>

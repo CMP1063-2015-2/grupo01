@@ -7,7 +7,7 @@
 	<packaging>war</packaging>
 
 	<properties>
-		<!-- VERSÇAO JSF -->
+		<!-- VERSAO JSF -->
 		<com.sun.faces.version>2.2.2</com.sun.faces.version>
 	</properties>
 
