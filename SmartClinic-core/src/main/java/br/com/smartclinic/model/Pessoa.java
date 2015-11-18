@@ -39,8 +39,12 @@ public class Pessoa implements TransferEntity{
 	private SexoEnum sexo;
 	
 	@OneToMany(cascade = CascadeType.ALL)
-	@JoinTable(name = "PESSOA_TELEFONE", joinColumns = @JoinColumn(name = "id_medico"), inverseJoinColumns = @JoinColumn(name = "id_telefone"))
+	@JoinTable(name = "PESSOA_TELEFONE", joinColumns = @JoinColumn(name = "id_pessoa"), inverseJoinColumns = @JoinColumn(name = "id_telefone"))
 	private List<Telefone> telefones;
+	
+	@OneToMany(cascade = CascadeType.ALL)
+	@JoinTable(name = "PESSOA_ENDERECO", joinColumns = @JoinColumn(name = "id_pessoa"), inverseJoinColumns = @JoinColumn(name = "id_endereco"))
+	private List<Endereco> enderecos;
 
 	public String getNome() {
 		return nome;
@@ -79,7 +83,6 @@ public class Pessoa implements TransferEntity{
 		return this.id;
 	}
 
-	@Override
 	public void setId(Long id) {
 		this.id = id;
 	}
@@ -90,6 +93,14 @@ public class Pessoa implements TransferEntity{
 
 	public void setTelefones(List<Telefone> telefones) {
 		this.telefones = telefones;
+	}
+
+	public List<Endereco> getEnderecos() {
+		return enderecos;
+	}
+
+	public void setEnderecos(List<Endereco> enderecos) {
+		this.enderecos = enderecos;
 	}
 	
 }

@@ -23,6 +23,15 @@ public class SessionFactoryListener implements ServletContextListener{
 		smartClinicAnnotatedClasses.add(br.com.smartclinic.model.Pessoa.class);
 		smartClinicAnnotatedClasses.add(br.com.smartclinic.model.Medico.class);
 		smartClinicAnnotatedClasses.add(br.com.smartclinic.model.Telefone.class);
+		smartClinicAnnotatedClasses.add(br.com.smartclinic.model.Agenda.class);
+		smartClinicAnnotatedClasses.add(br.com.smartclinic.model.Cidade.class);
+		smartClinicAnnotatedClasses.add(br.com.smartclinic.model.Compromisso.class);
+		smartClinicAnnotatedClasses.add(br.com.smartclinic.model.Consulta.class);
+		smartClinicAnnotatedClasses.add(br.com.smartclinic.model.Convenio.class);
+		smartClinicAnnotatedClasses.add(br.com.smartclinic.model.Endereco.class);
+		smartClinicAnnotatedClasses.add(br.com.smartclinic.model.FichaMedica.class);
+		smartClinicAnnotatedClasses.add(br.com.smartclinic.model.Paciente.class);
+		smartClinicAnnotatedClasses.add(br.com.smartclinic.model.Secretario.class);
 	}
 
 	@Override

@@ -6,6 +6,7 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
 import javax.persistence.OneToOne;
 
 @Entity(name = "MEDICO")
@@ -25,9 +26,11 @@ public class Medico implements TransferEntity {
 	private String crm;
 	
 	@OneToOne(cascade = CascadeType.ALL)
+	@JoinColumn(name = "id_usuario", nullable = false)
 	private Usuario usuario;
 	
 	@OneToOne(cascade = CascadeType.ALL)
+	@JoinColumn(name = "id_pessoa", nullable = false)
 	private Pessoa pessoa;
 
 	@Override
@@ -35,7 +38,6 @@ public class Medico implements TransferEntity {
 		return this.id;
 	}
 
-	@Override
 	public void setId(Long id) {
 		this.id = id;
 	}
