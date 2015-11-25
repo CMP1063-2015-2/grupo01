@@ -60,8 +60,43 @@
 					<p:tab id="enderecos" title="Endereço">
 						<div class="panel panel-default">
 							<div class="panel-body">
+								<p:messages />
 								<div class="row">
-									<p:messages />
+									<div class="col-lg-6">
+                                		<div class="form-group">
+                                			<label>Logradouro</label>
+                                			<h:inputText styleClass="form-control" required="true" requiredMessage="O campo logradouro é de preenchimento obrigatório."/>
+                                		</div>
+                                	</div>
+                                	<div class="col-lg-6">
+                                		<div class="form-group">
+                                			<label>Número</label>
+                                			<h:inputText styleClass="form-control"/>
+                                		</div>
+                                	</div>
+                                	<div class="col-lg-6">
+                                		<div class="form-group">
+                                			<label>Complemento</label>
+                                			<h:inputText styleClass="form-control"/>
+                                		</div>
+                                	</div>
+                                	<div class="col-lg-6">
+                                		<div class="form-group">
+                                			<label>Cep</label>
+                                			<h:inputText styleClass="form-control" required="true" requiredMessage="O campo cep é de preenchimento obrigatório."/>
+                                		</div>
+                                	</div>
+                                	<div class="col-lg-6">
+                                		<div class="form-group">
+                                			<label>Bairro</label>
+                                			<h:inputText styleClass="form-control" required="true" requiredMessage="O campo bairro é de preenchimento obrigatório."/>
+                                		</div>
+                                	</div>
+                                	<div class="col-lg-6">
+                                		<div class="form-group">
+                                			<label>Cidade</label>
+                                		</div>
+                                	</div>
 								</div>			
 							</div>
 						</div>
