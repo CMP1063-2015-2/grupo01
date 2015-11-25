@@ -9,7 +9,9 @@
 	
 <!-- 		<property name="dialect">br.com.smartclinic.utils.SQLServerDialect</property> -->
 		
-		<property name="dialect">org.hibernate.dialect.MySQLDialect</property>
+<!-- 		<property name="dialect">org.hibernate.dialect.MySQLDialect</property> -->
+		
+		<property name="dialect">org.hibernate.dialect.PostgreSQLDialect</property>
 	
 		<property name="show_sql">true</property>
 		<property name="use_outer_join">true</property>		

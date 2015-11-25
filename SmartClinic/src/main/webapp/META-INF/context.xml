@@ -14,17 +14,29 @@
         
 <!--    	/> -->
    	
-   	<Resource 
+<!--    	<Resource  -->
+<!--     	name="jdbc/SMARTCLINIC"  -->
+<!--     	auth="Container" -->
+<!--         type="javax.sql.DataSource" -->
+<!--         maxActive="100"  -->
+<!--         maxIdle="40"  -->
+<!--         maxWait="1000" -->
+<!--         username="root" -->
+<!--         password="1234"  -->
+<!--         driverClassName="com.mysql.jdbc.Driver" -->
+<!--         url="jdbc:mysql://localhost/smartclinic"  -->
+<!--    	/> -->
+
+	<Resource 
     	name="jdbc/SMARTCLINIC" 
     	auth="Container"
         type="javax.sql.DataSource"
         maxActive="100" 
         maxIdle="40" 
         maxWait="1000"
-        username="root"
+        username="postgres"
         password="123456" 
-        driverClassName="com.mysql.jdbc.Driver"
-        url="jdbc:mysql://localhost/smartclinic" 
-        
+        driverClassName="org.postgresql.Driver"
+        url="jdbc:postgresql://localhost:5433/smartclinic" 
    	/>
 </Context>
