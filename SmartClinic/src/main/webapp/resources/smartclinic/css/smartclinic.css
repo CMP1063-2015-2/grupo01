@@ -80,3 +80,7 @@ footer {
 .ui-wizard-step-title{
 	font-size: 14px !important;
 }
+
+.lalala input {
+	width: 300px !important;
+}
