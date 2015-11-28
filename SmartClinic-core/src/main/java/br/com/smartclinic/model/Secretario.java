@@ -19,11 +19,11 @@ public class Secretario implements TransferEntity{
 	@Column(name = "id_secretario")
 	private Long id;
 	
-	@OneToOne(cascade = CascadeType.ALL)
+	@OneToOne(cascade = CascadeType.REMOVE)
 	@JoinColumn(name = "id_pessoa", nullable = false)
 	private Pessoa pessoa;
 	
-	@OneToOne(cascade = CascadeType.ALL)
+	@OneToOne(cascade = CascadeType.REMOVE)
 	@JoinColumn(name = "id_usuario", nullable = false)
 	private Usuario usuario;
 	

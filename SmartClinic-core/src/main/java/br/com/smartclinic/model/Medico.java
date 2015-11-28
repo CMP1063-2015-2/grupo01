@@ -25,11 +25,11 @@ public class Medico implements TransferEntity {
 	@Column(name = "crm", nullable = false)
 	private String crm;
 	
-	@OneToOne(cascade = CascadeType.ALL)
+	@OneToOne(cascade = CascadeType.REMOVE)
 	@JoinColumn(name = "id_usuario", nullable = false)
 	private Usuario usuario;
 	
-	@OneToOne(cascade = CascadeType.ALL)
+	@OneToOne(cascade = CascadeType.REMOVE)
 	@JoinColumn(name = "id_pessoa", nullable = false)
 	private Pessoa pessoa;
 

@@ -17,13 +17,13 @@ import br.com.smartclinic.model.Pessoa;
 import br.com.smartclinic.model.Usuario;
 import br.com.smartclinic.model.enums.SexoEnum;
 import br.com.smartclinic.model.enums.TipoUsuarioEnum;
-import br.com.smartclinic.service.SmartClinicService;
+import br.com.smartclinic.service.MedicoService;
 
 @RequestScoped
 @ManagedBean
 public class Main {
 
-	private SmartClinicService service;
+	private MedicoService medicoService;
 	
 	private ScheduleModel agenda;
 	
@@ -37,7 +37,7 @@ public class Main {
 
 	@PostConstruct
 	public void init(){
-		service = SmartClinicService.getInstance();
+		medicoService = MedicoService.getInstance();
 		System.out.println("Bean Executado!");
 		
 		Medico medico = new Medico();
@@ -56,7 +56,7 @@ public class Main {
 		medico.getUsuario().setTipoUsuario(TipoUsuarioEnum.ADMIN);
 		
 		try{
-			medico = service.inserirMedico(medico);
+			medico = medicoService.inserir(medico, true);
 		}catch(RegraNegocioException e){
 			System.out.println(e.getMensagens());
 		}

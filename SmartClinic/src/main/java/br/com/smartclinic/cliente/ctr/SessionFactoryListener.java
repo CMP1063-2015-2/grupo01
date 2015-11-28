@@ -6,14 +6,12 @@ import java.util.Set;
 import javax.servlet.ServletContextEvent;
 import javax.servlet.ServletContextListener;
 
-import br.com.smartclinic.dao.UsuarioDao;
-import br.com.smartclinic.model.TransferEntity;
-import br.com.smartclinic.model.Usuario;
-import br.com.smartclinic.model.enums.TipoUsuarioEnum;
-import br.com.smartclinic.utils.HibernateUtil;
-
 import org.hibernate.SessionFactory;
 import org.hibernate.cfg.Configuration;
+
+import br.com.smartclinic.dataGenerator.SmartClinicDataGenerator;
+import br.com.smartclinic.model.TransferEntity;
+import br.com.smartclinic.utils.HibernateUtil;
 
 public class SessionFactoryListener implements ServletContextListener{
 	
@@ -48,17 +46,7 @@ public class SessionFactoryListener implements ServletContextListener{
 	public void contextInitialized(ServletContextEvent arg0) {
 		sessionFactory = getSessionFactory();
 		HibernateUtil.setSessionFactory(sessionFactory);
-		
-		Usuario usuario = new Usuario();
-		usuario.setLogin("admin");
-		usuario.setSenha("123");
-		usuario.setTipoUsuario(TipoUsuarioEnum.ADMIN);
-		
-		try{
-			UsuarioDao.getInstance().inserirUsuario(usuario, true);
-		}catch(Exception e){
-			e.printStackTrace();
-		}
+		SmartClinicDataGenerator.incluirDadosSmartClinic(arg0.getServletContext().getRealPath("/"));
 	}
 	
 	@SuppressWarnings("deprecation")

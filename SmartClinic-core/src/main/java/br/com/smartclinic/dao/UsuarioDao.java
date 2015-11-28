@@ -1,6 +1,7 @@
 package br.com.smartclinic.dao;
 
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 import br.com.smartclinic.model.Usuario;
@@ -18,7 +19,7 @@ public class UsuarioDao extends ParentDao {
 		return instance;
 	}
 	
-	public Usuario inserirUsuario(Usuario usuario, boolean confirmaTransacao){
+	public Usuario inserir(Usuario usuario, boolean confirmaTransacao){
 		
 		usuario = super.incluir(usuario);
 		
@@ -66,5 +67,30 @@ public class UsuarioDao extends ParentDao {
 		parametros.put("senha", usuario.getSenha());
 		
 		return (Usuario) super.uniqueResult(hql, parametros);
+	}
+	
+	public List<Usuario> listar(Usuario usuario, boolean isExato){
+		StringBuilder hql = new StringBuilder();
+		Map<String, Object> parametros = new HashMap<String, Object>();
+		
+		hql.append(" select bean from ").append(Usuario.class.getName()).append(" bean ");
+		hql.append(" where 1=1 ");
+		
+		if(usuario.getLogin() != null && !usuario.getLogin().equals("")){
+			if(isExato){
+				hql.append(" and LOWER(bean.login) = LOWER(:login) ");
+				parametros.put("login", usuario.getLogin());
+			}else{
+				hql.append(" and LOWER(bean.login) like LOWER(:login) ");
+				parametros.put("login", "%" + usuario.getLogin() + "%");
+			}
+		}
+		
+		if(usuario.getTipoUsuario() != null){
+			hql.append(" and bean.tipoUsuario = :tipoUsuario ");
+			parametros.put("tipoUsuario", usuario.getTipoUsuario());
+		}
+		
+		return super.listar(Usuario.class, hql, parametros);
 	}
 }

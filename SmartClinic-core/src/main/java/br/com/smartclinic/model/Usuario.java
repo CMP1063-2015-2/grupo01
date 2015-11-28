@@ -6,6 +6,7 @@ import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.EnumType;
 import javax.persistence.Enumerated;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
@@ -33,8 +34,11 @@ public class Usuario implements TransferEntity, Serializable{
 	@Column(name = "tipo_usuario", nullable = false)
 	private TipoUsuarioEnum tipoUsuario;
 	
-	@OneToOne(mappedBy = "usuario")
+	@OneToOne(mappedBy = "usuario", fetch = FetchType.LAZY)
 	private Medico medico;
+	
+	@OneToOne(mappedBy = "usuario", fetch = FetchType.LAZY)
+	private Secretario secretario;
 	
 	@Override
 	public Long getId() {
@@ -78,10 +82,15 @@ public class Usuario implements TransferEntity, Serializable{
 	}
 	
 	public String getNome(){
-		String nome = "";
-		if(medico != null && medico.getPessoa() != null){
-			nome = medico.getPessoa().getNome();
+		if(medico != null){
+			return medico.getPessoa().getNome();
 		}
-		return nome;
+		
+		if(secretario != null){
+			return secretario.getPessoa().getNome();
+		}
+		return "";
 	}
+	
+	
 }

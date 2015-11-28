@@ -21,10 +21,10 @@ public class MedicoBO extends ParentBO{
 		return instance;
 	}
 	
-	public Medico inserir(Medico medico) throws RegraNegocioException{
+	public Medico inserir(Medico medico, boolean confirmaTransacao) throws RegraNegocioException{
 		validaRegrasNegocioMedicoInserir(medico);
 		
-		medico = medicoDao.inserir(medico, true);
+		medico = medicoDao.inserir(medico, confirmaTransacao);
 		
 		return medico;
 	}
