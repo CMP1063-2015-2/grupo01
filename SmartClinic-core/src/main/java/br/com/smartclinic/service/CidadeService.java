@@ -33,5 +33,9 @@ public class CidadeService implements Serializable{
 	public List<Cidade> listar(Cidade cidade, boolean isExato){
 		return cidadeDao.listar(cidade, isExato);
 	}
+	
+	public Cidade consultarPorId(Long id){
+		return cidadeDao.consultarPorId(id);
+	}
 
 }

@@ -32,7 +32,7 @@ public class Medico implements TransferEntity {
 	@OneToOne(cascade = CascadeType.REMOVE)
 	@JoinColumn(name = "id_pessoa", nullable = false)
 	private Pessoa pessoa;
-
+	
 	@Override
 	public Long getId() {
 		return this.id;

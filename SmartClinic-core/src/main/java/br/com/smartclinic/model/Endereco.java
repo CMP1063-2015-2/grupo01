@@ -3,11 +3,14 @@ package br.com.smartclinic.model;
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.Enumerated;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
+
+import br.com.smartclinic.model.enums.TipoEnderecoEnum;
 
 @Entity(name = "ENDERECO")
 public class Endereco implements TransferEntity {
@@ -37,6 +40,10 @@ public class Endereco implements TransferEntity {
 	@ManyToOne(cascade = CascadeType.PERSIST)
 	@JoinColumn(name = "id_cidade", nullable = false)
 	private Cidade cidade;
+	
+	@Enumerated
+	@JoinColumn(name = "tipo_endereco", nullable = false)
+	private TipoEnderecoEnum tipoEndereco;
 
 	@Override
 	public Long getId() {
@@ -93,5 +100,41 @@ public class Endereco implements TransferEntity {
 
 	public void setCidade(Cidade cidade) {
 		this.cidade = cidade;
+	}
+
+	public TipoEnderecoEnum getTipoEndereco() {
+		return tipoEndereco;
+	}
+
+	public void setTipoEndereco(TipoEnderecoEnum tipoEndereco) {
+		this.tipoEndereco = tipoEndereco;
+	}
+	
+	public Endereco clonar(){
+		Endereco enderecoClone = new Endereco();
+		enderecoClone.setLogradouro(logradouro);
+		enderecoClone.setBairro(bairro);
+		enderecoClone.setCep(cep);
+		enderecoClone.setCidade(cidade);
+		enderecoClone.setNumero(numero);
+		enderecoClone.setId(id);
+		enderecoClone.setComplemento(complemento);
+		enderecoClone.setTipoEndereco(tipoEndereco);
+		
+		return enderecoClone;
+	}
+	
+	@Override
+	public boolean equals(Object obj) {
+		Endereco endTemp = (Endereco) obj;
+		return this.hashCode() == endTemp.hashCode();
+	}
+	
+	@Override
+	public int hashCode() {
+		if(logradouro != null && cep != null){
+			return logradouro.hashCode() + cep.hashCode();
+		}
+		return super.hashCode();
 	}
 }

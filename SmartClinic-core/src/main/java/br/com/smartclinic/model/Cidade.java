@@ -46,5 +46,12 @@ public class Cidade implements TransferEntity{
 		this.estado = estado;
 	}
 	
-
+	public String getNomeCompleto(){
+		return nome + " - " + estado;
+	}
+	
+	@Override
+	public String toString() {
+		return id.toString();
+	}
 }

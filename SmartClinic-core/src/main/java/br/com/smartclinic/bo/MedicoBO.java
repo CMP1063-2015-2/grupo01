@@ -1,17 +1,21 @@
 package br.com.smartclinic.bo;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 
 import br.com.smartclinic.RegraNegocioException;
+import br.com.smartclinic.dao.MedicoDao;
 import br.com.smartclinic.model.Medico;
 
-public class MedicoBO extends ParentBO{
+public class MedicoBO implements Serializable{
 	
+	private static final long serialVersionUID = 1L;
 	private static MedicoBO instance;
+	private MedicoDao medicoDao;
 	
 	private MedicoBO(){
-		super();
+		this.medicoDao = MedicoDao.getInstance();
 	}
 	
 	public static MedicoBO getInstance(){

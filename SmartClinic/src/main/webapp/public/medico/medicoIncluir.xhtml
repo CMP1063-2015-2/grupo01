@@ -15,7 +15,7 @@
 		</div>
 
 		<div class="col-md-9">
-			<h:form>
+			<h:form id="form">
 				<p:wizard flowListener="#{medicoController.onFlowProcess}" backLabel="Anterior" nextLabel="Próximo">
 					<p:tab id="pessoal" title="Dados Pessoais">
 						<div class="panel panel-default">
@@ -25,21 +25,21 @@
                                 	<div class="col-lg-6">
                                 		<div class="form-group">
                                 			<label>Nome</label>
-                                			<h:inputText styleClass="form-control" required="true" requiredMessage="O campo nome é de preenchimento obrigatório."/>
+                                			<h:inputText styleClass="form-control" required="false" requiredMessage="O campo nome é de preenchimento obrigatório."/>
                                 		</div>
                                 	</div>
                                 	
                                 	<div class="col-lg-6">
                                 		<div class="form-group">
                                 			<label>CPF</label>
-                                			<h:inputText styleClass="form-control" required="true" requiredMessage="O campo CPF é de preenchimento obrigatório."/>
+                                			<h:inputText styleClass="form-control" required="false" requiredMessage="O campo CPF é de preenchimento obrigatório."/>
                                 		</div>
                                 	</div>
                                 	
                                 	<div class="col-lg-6">
                                 		<div class="form-group">
                                 			<label>Sexo</label>
-                                			<h:selectOneMenu styleClass="form-control" required="true" requiredMessage="O campo Sexo é de preenchimento obrigatório.">
+                                			<h:selectOneMenu styleClass="form-control" required="false" requiredMessage="O campo Sexo é de preenchimento obrigatório.">
                                 				<f:selectItem itemLabel="-- Selecione --" />
                                 				<f:selectItems value="#{medicoController.sexos}" var="sexo" itemValue="#{sexo}" itemLabel="#{sexo.nome}"/>
                                 			</h:selectOneMenu>
@@ -49,7 +49,7 @@
                                 	<div class="col-lg-6">
                                 		<div class="form-group">
                                 			<label>RG</label>
-                                			<h:inputText styleClass="form-control" required="true" requiredMessage="O campo RG é de preenchimento obrigatório."/>
+                                			<h:inputText styleClass="form-control" required="false" requiredMessage="O campo RG é de preenchimento obrigatório."/>
                                 		</div>
                                 	</div>
                                 </div>
@@ -62,43 +62,90 @@
 							<div class="panel-body">
 								<p:messages />
 								<div class="row">
-									<div class="col-lg-6">
+									<div class="col-lg-5">
                                 		<div class="form-group">
-                                			<label>Logradouro</label>
-                                			<h:inputText styleClass="form-control" required="true" requiredMessage="O campo logradouro é de preenchimento obrigatório."/>
+                                			<label>Logradouro *</label>
+                                			<h:inputText styleClass="form-control" maxlength="200" required="#{param['form:salvarEndereco'] != null}" requiredMessage="O campo logradouro é de preenchimento obrigatório."
+                                						value="#{medicoController.endereco.logradouro}"/>
                                 		</div>
                                 	</div>
-                                	<div class="col-lg-6">
+                                	<div class="col-lg-2">
                                 		<div class="form-group">
                                 			<label>Número</label>
-                                			<h:inputText styleClass="form-control"/>
+                                			<h:inputText styleClass="form-control" maxlength="5" value="#{medicoController.endereco.numero}"/>
                                 		</div>
                                 	</div>
-                                	<div class="col-lg-6">
+                                	<div class="col-lg-2">
+                                		<div class="form-group">
+                                			<label>Cep *</label>
+                                			<h:inputText styleClass="form-control" maxlength="9" required="#{param['form:salvarEndereco'] != null}" requiredMessage="O campo cep é de preenchimento obrigatório."
+                                						value="#{medicoController.endereco.cep}"/>
+                                		</div>
+                                	</div>
+                                	<div class="col-lg-3">
+                                		<div class="form-group">
+                                			<label>Tipo de Endereço *</label>
+                                			<h:selectOneMenu styleClass="form-control" value="#{medicoController.endereco.tipoEndereco}" required="#{param['form:salvarEndereco'] != null}" requiredMessage="O campo Tipo de Endereço é de preenchimento obrigatório.">
+                                				<f:selectItem itemLabel="-- Selecione --" />
+                                				<f:selectItems value="#{medicoController.tiposEndereco}" var="tipoEndereco" itemValue="#{tipoEndereco}" itemLabel="#{tipoEndereco.nome}"/>
+                                			</h:selectOneMenu>
+                                		</div>
+                                	</div>
+                                	<div class="col-lg-4">
                                 		<div class="form-group">
                                 			<label>Complemento</label>
-                                			<h:inputText styleClass="form-control"/>
+                                			<h:inputText styleClass="form-control" value="#{medicoController.endereco.complemento}"/>
                                 		</div>
                                 	</div>
-                                	<div class="col-lg-6">
+                                	<div class="col-lg-4">
                                 		<div class="form-group">
-                                			<label>Cep</label>
-                                			<h:inputText styleClass="form-control" required="true" requiredMessage="O campo cep é de preenchimento obrigatório."/>
+                                			<label>Bairro *</label>
+                                			<h:inputText styleClass="form-control" required="#{param['form:salvarEndereco'] != null}" requiredMessage="O campo bairro é de preenchimento obrigatório."
+                                						value="#{medicoController.endereco.bairro}"/>
                                 		</div>
                                 	</div>
-                                	<div class="col-lg-6">
+                                	<div class="col-lg-4">
                                 		<div class="form-group">
-                                			<label>Bairro</label>
-                                			<h:inputText styleClass="form-control" required="true" requiredMessage="O campo bairro é de preenchimento obrigatório."/>
-                                		</div>
-                                	</div>
-                                	<div class="col-lg-6">
-                                		<div class="form-group">
-                                			<label>Cidade</label>
+                                			<label>Cidade *</label>
                                 			<div style="width: 100%;" >
-                                				<p:autoComplete style="width: 100%;" inputStyle="width: 100%;" ></p:autoComplete>
+                                				<p:autoComplete style="width: 100%;" queryDelay="1000" maxResults="15" inputStyle="width: 100%;" 
+                                								completeMethod="#{medicoController.cidadesAutoComplete}"  
+                                								value="#{medicoController.endereco.cidade}"
+                                								var="cidade"
+                                								itemLabel="#{cidade.nomeCompleto}"
+                                								itemValue="#{cidade}"
+                                								converter="cidadeConverter"
+                                								forceSelection="true"
+                                								required="#{param['form:salvarEndereco'] != null}"
+                                								requiredMessage="O campo Cidade é de preenchimento obrigatório."/>
                                 			</div>
                                 		</div>
+                                	</div>
+                                	<div class="col-lg-12">
+                                		<h:commandButton id="salvarEndereco" styleClass="btn btn-success" value="Salvar Endereço" action="#{medicoController.salvarEndereco}"/>
+                                	</div>
+	                                <div class="col-lg-12">
+                                		<p:panelGrid rendered="#{medicoController.renderListEnderecos}" styleClass="panel panel-default">
+			                            	<h:dataTable value="#{medicoController.medico.pessoa.enderecos}" var="end" styleClass="table">
+			                            		<h:column>
+			                            			<f:facet name="header">Tipo</f:facet>
+			                            			#{end.tipoEndereco.nome}
+			                            		</h:column>
+			                            		<h:column>
+			                            			<f:facet name="header">Endereço</f:facet>
+			                            			#{end.logradouro}, #{end.numero}, #{end.complemento}<br />
+			                            			#{end.bairro} - #{end.cidade.nome} - #{end.cidade.estado}, #{end.cep}
+			                            		</h:column>
+			                            		<h:column>
+			                            			<h:commandLink value="Editar" action="#{medicoController.editarEndereco}">
+			                            				<f:setPropertyActionListener target="#{medicoController.endereco}" value="#{end}" />
+			                            			</h:commandLink><br />
+			                            			<h:commandLink value="Apagar" action="#{medicoController.removerEndereco}">
+			                            				<f:setPropertyActionListener target="#{medicoController.endereco}" value="#{end}" />
+			                            			</h:commandLink>
+			                            		</h:column>
+			                            	</h:dataTable>
+		                                </p:panelGrid>
                                 	</div>
 								</div>			
 							</div>

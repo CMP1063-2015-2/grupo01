@@ -1,5 +1,6 @@
 package br.com.smartclinic.service;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -8,7 +9,9 @@ import br.com.smartclinic.bo.MedicoBO;
 import br.com.smartclinic.dao.MedicoDao;
 import br.com.smartclinic.model.Medico;
 
-public class MedicoService {
+public class MedicoService implements Serializable{
+	
+	private static final long serialVersionUID = 1L;
 	private static MedicoService instance;
 	private MedicoDao medicoDao;
 	private MedicoBO medicoBO;
