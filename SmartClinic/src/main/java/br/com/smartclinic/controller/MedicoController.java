@@ -49,7 +49,7 @@ public class MedicoController implements Serializable {
 		medico.getPessoa().setEnderecos(new ArrayList<Endereco>());
 		medico.getPessoa().setTelefones(new ArrayList<Telefone>());
 		
-		//Teste
+		//Teste 2
 	}
 	
 	public void setActionMedico(Medico medico){
@@ -127,7 +127,7 @@ public class MedicoController implements Serializable {
 	public String salvarEndereco(){
 		medico.getPessoa().getEnderecos().add(endereco.clonar());
 		endereco = new Endereco();
-		FacesContext.getCurrentInstance().addMessage(null, new FacesMessage(FacesMessage.SEVERITY_INFO, "Endereço salvo com sucesso!", ""));
+		FacesContext.getCurrentInstance().addMessage(null, new FacesMessage(FacesMessage.SEVERITY_INFO, "EndereÃ§o salvo com sucesso!", ""));
 		return "";
 	}
 	
