@@ -48,6 +48,8 @@ public class MedicoController implements Serializable {
 		medico.setPessoa(new Pessoa());
 		medico.getPessoa().setEnderecos(new ArrayList<Endereco>());
 		medico.getPessoa().setTelefones(new ArrayList<Telefone>());
+		
+		//Teste
 	}
 	
 	public void setActionMedico(Medico medico){
