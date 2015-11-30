@@ -32,7 +32,7 @@
                                 	<div class="col-lg-6">
                                 		<div class="form-group">
                                 			<label>CPF</label>
-                                			<h:inputText styleClass="form-control" required="false" requiredMessage="O campo CPF é de preenchimento obrigatório."/>
+                                			<h:inputText styleClass="form-control cpf" onfocus="setMascara();" required="false" requiredMessage="O campo CPF é de preenchimento obrigatório."/>
                                 		</div>
                                 	</div>
                                 	
@@ -49,7 +49,7 @@
                                 	<div class="col-lg-6">
                                 		<div class="form-group">
                                 			<label>RG</label>
-                                			<h:inputText styleClass="form-control" required="false" requiredMessage="O campo RG é de preenchimento obrigatório."/>
+                                			<h:inputText styleClass="form-control rg"  onfocus="setMascara();" required="false" requiredMessage="O campo RG é de preenchimento obrigatório."/>
                                 		</div>
                                 	</div>
                                 </div>
@@ -60,7 +60,7 @@
 					<p:tab id="enderecos" title="Endereço">
 						<div class="panel panel-default">
 							<div class="panel-body">
-								<p:messages />
+								<p:messages closable="true"/>
 								<div class="row">
 									<div class="col-lg-5">
                                 		<div class="form-group">
@@ -72,13 +72,13 @@
                                 	<div class="col-lg-2">
                                 		<div class="form-group">
                                 			<label>Número</label>
-                                			<h:inputText styleClass="form-control" maxlength="5" value="#{medicoController.endereco.numero}"/>
+                                			<h:inputText styleClass="form-control" id="numero" onfocus="setMascara();" value="#{medicoController.endereco.numero}"/>
                                 		</div>
                                 	</div>
                                 	<div class="col-lg-2">
                                 		<div class="form-group">
                                 			<label>Cep *</label>
-                                			<h:inputText styleClass="form-control" maxlength="9" required="#{param['form:salvarEndereco'] != null}" requiredMessage="O campo cep é de preenchimento obrigatório."
+                                			<h:inputText styleClass="form-control" id="cep" onfocus="setMascara();" required="#{param['form:salvarEndereco'] != null}" requiredMessage="O campo cep é de preenchimento obrigatório."
                                 						value="#{medicoController.endereco.cep}"/>
                                 		</div>
                                 	</div>
@@ -139,9 +139,11 @@
 			                            		<h:column>
 			                            			<h:commandLink value="Editar" action="#{medicoController.editarEndereco}">
 			                            				<f:setPropertyActionListener target="#{medicoController.endereco}" value="#{end}" />
+			                            				<f:ajax render="@all"></f:ajax>
 			                            			</h:commandLink><br />
 			                            			<h:commandLink value="Apagar" action="#{medicoController.removerEndereco}">
 			                            				<f:setPropertyActionListener target="#{medicoController.endereco}" value="#{end}" />
+			                            				<f:ajax render="@all"></f:ajax>
 			                            			</h:commandLink>
 			                            		</h:column>
 			                            	</h:dataTable>

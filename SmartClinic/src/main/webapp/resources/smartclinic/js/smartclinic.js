@@ -16,7 +16,15 @@ $a(document).ready(function() {
     });
     
     setActiveMenu();
+    
 });
+
+function setMascara(){
+    $a(".rg").mask("9999999999");
+	$a("#form\\:cep").mask("99999-999");
+    $a("#form\\:numero").mask("99999");
+    $(".cpf").mask("999.999.999-99");
+}
 
 function setActiveMenu(){
 	var paginaAtual = $a("#activeMenu").val();

@@ -48,21 +48,6 @@ public class MedicoController implements Serializable {
 		medico.setPessoa(new Pessoa());
 		medico.getPessoa().setEnderecos(new ArrayList<Endereco>());
 		medico.getPessoa().setTelefones(new ArrayList<Telefone>());
-		
-		Cidade cidade = new Cidade();
-		cidade.setNome("Goiania");
-		cidade.setEstado("GO");
-		
-		Endereco endereco = new Endereco();
-		endereco.setLogradouro("teste");
-		endereco.setBairro("teste");
-		endereco.setNumero("123");
-		endereco.setCep("1234");
-		endereco.setComplemento("teste123");
-		endereco.setCidade(cidade);
-		endereco.setTipoEndereco(TipoEnderecoEnum.RESIDENCIAL);
-
-		medico.getPessoa().getEnderecos().add(endereco);
 	}
 	
 	public void setActionMedico(Medico medico){
