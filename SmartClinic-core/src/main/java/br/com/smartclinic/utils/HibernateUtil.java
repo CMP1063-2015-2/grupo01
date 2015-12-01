@@ -60,8 +60,9 @@ public class HibernateUtil {
 	public static void rollbackTransaction(){
 		if(isTransacaoAberta()){
 			try{
-				transaction.rollback();
 				logger.debug("###### Realizando rollback na transação " + transaction.hashCode());
+				transaction.rollback();
+				endTransaction();
 			}catch(Throwable e){
 				logger.debug("###### Falha ao dar roolback na transação " + transaction.hashCode());
 				throw new RuntimeException(e);

@@ -29,7 +29,7 @@ public class Medico implements TransferEntity {
 	@JoinColumn(name = "id_usuario", nullable = false)
 	private Usuario usuario;
 	
-	@OneToOne(cascade = CascadeType.REMOVE)
+	@OneToOne(cascade = CascadeType.ALL)
 	@JoinColumn(name = "id_pessoa", nullable = false)
 	private Pessoa pessoa;
 	

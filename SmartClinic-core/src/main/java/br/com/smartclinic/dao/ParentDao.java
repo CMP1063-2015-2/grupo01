@@ -22,6 +22,7 @@ public class ParentDao implements Serializable {
 			session.save(bean);
 			session.flush();
 		}catch(Throwable e){
+			e.printStackTrace();
 			HibernateUtil.rollbackTransaction();
 		}
 		return bean;
@@ -35,6 +36,7 @@ public class ParentDao implements Serializable {
 			session.update(bean);
 			session.flush();
 		}catch(Throwable e){
+			e.printStackTrace();
 			HibernateUtil.rollbackTransaction();
 		}
 		return bean;
@@ -50,6 +52,7 @@ public class ParentDao implements Serializable {
 			session.delete(bean);
 			session.flush();
 		}catch(Throwable e){
+			e.printStackTrace();
 			HibernateUtil.rollbackTransaction();
 		}
 		return bean;
@@ -59,6 +62,7 @@ public class ParentDao implements Serializable {
 		try{
 			HibernateUtil.commitTransaction();
 		}catch(Throwable e){
+			e.printStackTrace();
 			HibernateUtil.rollbackTransaction();
 		}finally{
 			HibernateUtil.endTransaction();
@@ -83,6 +87,7 @@ public class ParentDao implements Serializable {
 			result = (T) session.get(beanClass, id);
 			session.flush();
 		}catch(Throwable e){
+			e.printStackTrace();
 			HibernateUtil.endTransaction();
 		}
 		return result;

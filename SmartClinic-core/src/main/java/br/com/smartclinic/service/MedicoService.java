@@ -6,6 +6,7 @@ import java.util.List;
 
 import br.com.smartclinic.RegraNegocioException;
 import br.com.smartclinic.bo.MedicoBO;
+import br.com.smartclinic.bo.PessoaBO;
 import br.com.smartclinic.dao.MedicoDao;
 import br.com.smartclinic.model.Medico;
 
@@ -15,12 +16,14 @@ public class MedicoService implements Serializable{
 	private static MedicoService instance;
 	private MedicoDao medicoDao;
 	private MedicoBO medicoBO;
+	private PessoaBO pessoaBO;
 	private UsuarioService usuarioService;
 	
 	private MedicoService(){
 		medicoDao = MedicoDao.getInstance();
 		usuarioService = UsuarioService.getInstance();
 		medicoBO = MedicoBO.getInstance();
+		pessoaBO = PessoaBO.getInstance();
 	}
 	
 	public static MedicoService getInstance(){
@@ -40,6 +43,12 @@ public class MedicoService implements Serializable{
 		try {
 			usuarioService.inserir(medico.getUsuario(), false);
 		} catch (RegraNegocioException e) {
+			mensagens.addAll(e.getMensagens());
+		}
+		
+		try{
+			pessoaBO.validaRegrasNegocioInserirPessoa(medico.getPessoa());
+		}catch(RegraNegocioException e){
 			mensagens.addAll(e.getMensagens());
 		}
 		

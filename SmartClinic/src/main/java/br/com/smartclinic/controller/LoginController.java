@@ -47,10 +47,11 @@ public class LoginController implements Serializable{
 		return "index";
 	}
 	
-	public void deslogar() throws IOException{
+	public String deslogar() throws IOException{
 		HttpSession session = (HttpSession) FacesContext.getCurrentInstance().getExternalContext().getSession(true);
 		session.setAttribute("usuarioLogado", null);
 		session.invalidate();
 		FacesContext.getCurrentInstance().getExternalContext().redirect("/SmartClinic/index.jsf"); 
+		return "";
 	}
 }
