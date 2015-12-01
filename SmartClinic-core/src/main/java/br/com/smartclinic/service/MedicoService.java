@@ -9,6 +9,7 @@ import br.com.smartclinic.bo.MedicoBO;
 import br.com.smartclinic.bo.PessoaBO;
 import br.com.smartclinic.dao.MedicoDao;
 import br.com.smartclinic.model.Medico;
+import br.com.smartclinic.model.enums.TipoUsuarioEnum;
 
 public class MedicoService implements Serializable{
 	
@@ -41,6 +42,7 @@ public class MedicoService implements Serializable{
 		List<String> mensagens = new ArrayList<String>();
 		
 		try {
+			medico.getUsuario().setTipoUsuario(TipoUsuarioEnum.MEDICO);
 			usuarioService.inserir(medico.getUsuario(), false);
 		} catch (RegraNegocioException e) {
 			mensagens.addAll(e.getMensagens());
